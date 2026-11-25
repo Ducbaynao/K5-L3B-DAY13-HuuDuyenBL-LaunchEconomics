@@ -65,6 +65,24 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Sao chép mục dưới đây cho từng thành viên.
 
+## Nguyễn Huy Tấn-2A202603925
+
+### Phần việc phụ trách
+
+- Người 2: kiểm số A–B độc lập (`src/kiem_so.py`, `bang_chi_phi.md` A1–B3), gắn nhãn 1 (CP3), code D1 và `pilot_plan.yaml` (CP4), rà chỉ số và rủi ro (CP5).
+
+### Đóng góp cụ thể
+
+- CP1: tính lại A1–A4 không dùng `mo_hinh`; tính tay token 245.585 đ trên 1.624 lần chạy; khớp `lab13.py` của Người 1 (4.472 đ/việc thành công, gấp 16,3 lần hoá đơn, simulated); điền A1–A4.
+- CP2: kiểm B1–B3 độc lập, tự kiểm tra "giảm một nửa = −½ gấp đôi"; điền B1, B2 (xếp hạng làm lại > xem lại > lương), B3 (giới hạn 2 lần rẻ nhất, 6.901.220 đ, simulated).
+- CP3: gắn nhãn 20 ca (người gắn nhãn 1); đồng thuận với Người 3 là 17/20 = 85%; ghi quy tắc phân biệt cho ca 6, 12, 17.
+- CP4: viết `co_mau`, `in_d1` trong `src/lab13.py` (1.251 · 84 > 40 người · 1.000 · 300 · m ≥ 299); chọn chia theo nhân viên 20 + 20, mde 0,06, power 0,64 nếu tác động là 5 điểm; điền D2 và các trường còn `?` trong `pilot_plan.yaml`; cập nhật mục 5, 6 hồ sơ launch.
+
+### Bằng chứng
+
+- PR #2 (CP1), #3 (CP2), #6 (CP3), #7 (CP4) đã merge vào `main`; commit `report Nguyen Huy Tan` (`5ea0eed`).
+- File: `src/kiem_so.py`, `src/lab13.py` (D1), `report/team/bang_chi_phi.md`, `bang_loi.md`, `pilot_plan.yaml`, `2A202603925_NguyenHuyTan.md`.
+
 ## Vũ Lương Duy-2A202603945
 
 ### Phần việc phụ trách
