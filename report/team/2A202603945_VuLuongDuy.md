@@ -30,8 +30,8 @@ Người 3: chỉ số, tổng hợp hồ sơ launch v0, gắn nhãn 2 (CP3), lu
 
 ## 5. Công cụ AI đã dùng
 
-- Claude Code: hỗ trợ đọc đề, soạn các file hồ sơ, tính thử chỉ số, git (nhánh, commit, push). Mình tự kiểm tra bằng cách chạy lại `src/lab13.py` và đối chiếu A1–B4 với bảng đáp án trong hướng dẫn, kiểm tra YAML bằng `yaml.safe_load`, và `grep` không còn `?` hay từ cấm.
-- Lưu ý khi gắn nhãn CP3: hướng dẫn chi tiết có bảng nhãn tham khảo mà công cụ AI đã đọc trước khi gợi ý nhãn, nên bộ nhãn của mình chưa phải hoàn toàn độc lập; mình đã đọc lại 20 ca và đối chiếu từng nhãn trước khi chấp nhận.
+- Claude Code: hỗ trợ đọc đề, soạn các file hồ sơ, tính thử chỉ số, git (nhánh, commit, push). Tôi tự kiểm tra bằng cách chạy lại `src/lab13.py` và đối chiếu A1–B4 với bảng đáp án trong hướng dẫn, kiểm tra YAML bằng `yaml.safe_load`, và `grep` không còn `?` hay từ cấm.
+- Lưu ý khi gắn nhãn CP3: hướng dẫn chi tiết có bảng nhãn tham khảo mà công cụ AI đã đọc trước khi gợi ý nhãn, nên bộ nhãn của tôi chưa phải hoàn toàn độc lập; tôi đã đọc lại 20 ca và đối chiếu từng nhãn trước khi chấp nhận.
 
 ## 6. Tự đánh giá
 
