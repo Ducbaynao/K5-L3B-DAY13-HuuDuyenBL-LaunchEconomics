@@ -163,6 +163,124 @@ def in_a4(runs, reqs, chi_phi_co_dinh=40_000_000, khoi_luong_thang=45_000):
         )
 
 
+def in_b1(runs, reqs):
+    """In bảng độ nhạy B1 cho 9 kịch bản đơn lẻ."""
+    goc = mo_hinh(runs, reqs)['cps']
+    kich_ban = {
+        'Gia token gap doi': dict(gia_vao=52, gia_ra=260),
+        'Gia token giam mot nua': dict(gia_vao=13, gia_ra=65),
+        'Xem lai gap doi': dict(he_so_xem_lai=2),
+        'Xem lai giam mot nua': dict(he_so_xem_lai=0.5),
+        'Lam lai gap doi': dict(he_so_lam_lai=2),
+        'Lam lai giam mot nua': dict(he_so_lam_lai=0.5),
+        'Luong tang 25%': dict(luong_phut=2500),
+        'Toi da 2 lan chay': dict(max_lan_chay=2),
+        'Chi 1 lan chay': dict(max_lan_chay=1),
+    }
+    print('\n=== B1 · BẢNG ĐỘ NHẠY (9 KỊCH BẢN) ===')
+    print(f"{'Goc (A2) [simulated]':28s} {goc:>8,.0f} d")
+    ket_qua_b1 = {}
+    for ten, kw in kich_ban.items():
+        cps = mo_hinh(runs, reqs, **kw)['cps']
+        pct = (cps / goc - 1) * 100
+        ket_qua_b1[ten] = (cps, pct)
+        print(f"{ten + ' [simulated]':28s} {cps:>8,.0f} d ({pct:+6.1f}%)")
+    return goc, ket_qua_b1
+
+
+def in_b2(runs, reqs, goc, ket_qua_b1):
+    """In B2: kết hợp giá token gấp đôi + xem lại gấp đôi và xếp hạng 3 yếu tố mạnh nhất."""
+    cps_ket_hop = mo_hinh(runs, reqs, gia_vao=52, gia_ra=260, he_so_xem_lai=2)['cps']
+    pct_ket_hop = (cps_ket_hop / goc - 1) * 100
+    pct_tok2 = ket_qua_b1['Gia token gap doi'][1]
+    pct_xem2 = ket_qua_b1['Xem lai gap doi'][1]
+
+    print('\n=== B2 · KẾT HỢP VÀ XẾP HẠNG YẾU TỐ ===')
+    print(
+        f"Ket hop (token x2 + xem lai x2) [simulated]: {cps_ket_hop:,.0f} d ({pct_ket_hop:+.1f}%) | "
+        f"Tong 2 tac dong rieng: {pct_tok2:+.1f}% + {pct_xem2:+.1f}% = {pct_tok2 + pct_xem2:+.1f}%"
+    )
+    print(
+        "[simulated] Xep hang theo muc thay doi CPS trong cac kich ban B1 da thu: "
+        f"1. So ca lam lai ({ket_qua_b1['Lam lai gap doi'][1]:+.1f}% / {ket_qua_b1['Lam lai giam mot nua'][1]:+.1f}%), "
+        f"2. Ti le xem lai ({ket_qua_b1['Xem lai gap doi'][1]:+.1f}% / {ket_qua_b1['Xem lai giam mot nua'][1]:+.1f}%), "
+        f"3. Luong nhan vien ({ket_qua_b1['Luong tang 25%'][1]:+.1f}% khi +25%)."
+    )
+
+
+def in_b3(runs, reqs):
+    """In B3: so sánh giới hạn 1, 2, 3 lần chạy theo tổng chi phí hệ thống và CPS."""
+    print('\n=== B3 · SO SÁNH GIỚI HẠN 1, 2, 3 LẦN CHẠY ===')
+    cac_muc = []
+    for k in (1, 2, 3):
+        kq = mo_hinh(runs, reqs, max_lan_chay=k)
+        khong_tc = len(reqs) - kq['thanh_cong']
+        ca_he_thong = kq['tong'] + khong_tc * BASELINE
+        cac_muc.append((k, kq['tong'], khong_tc, ca_he_thong, kq['cps']))
+        print(
+            f"Gioi han {k} lan | tong[simulated]={kq['tong']:>10,.0f} d | "
+            f"khong_tc={khong_tc:>3d} | ca_he_thong[simulated]={ca_he_thong:>10,.0f} d | "
+            f"cps[simulated]={kq['cps']:>6,.0f} d"
+        )
+    re_nhat_ht = min(cac_muc, key=lambda x: x[3])
+    thap_nhat_cps = min(cac_muc, key=lambda x: x[4])
+    print(
+        f"Re nhat cho cong ty (ca he thong): {re_nhat_ht[0]} lan ({re_nhat_ht[3]:,.0f} d [simulated]); "
+        f"CPS thap nhat: {thap_nhat_cps[0]} lan ({thap_nhat_cps[4]:,.0f} d [simulated]). "
+        f"Trung nhau: {'Co' if re_nhat_ht[0] == thap_nhat_cps[0] else 'Khong'}."
+    )
+
+
+def in_b4(runs, reqs):
+    """In B4: xem lại 100% yêu cầu trong phạm vi noi_dia + hang_nang."""
+    pham_vi = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    ok_ids = set(runs.loc[runs['status'] == 'ok', 'request_id'])
+    so_co_ok = int(pham_vi['request_id'].isin(ok_ids).sum())
+    so_lam_lai = int((pham_vi['ket_qua'] == 'lam_lai').sum())
+    so_thanh_cong = int((pham_vi['ket_qua'] == 'thanh_cong').sum())
+
+    runs_pv = runs[runs['request_id'].isin(pham_vi['request_id'])]
+    chi_phi_agent = (
+        runs_pv['tokens_in'] / 1000 * GIA_VAO
+        + runs_pv['tokens_out'] / 1000 * GIA_RA
+        + runs_pv['tool_calls'] * GIA_TOOL
+    ).sum()
+
+    xem_lai_100 = so_co_ok * 5 * LUONG_PHUT
+    all_lam_lai = reqs.loc[reqs['ket_qua'] == 'lam_lai', 'phut_lam_lai_simulated']
+    tb_lam_lai = all_lam_lai.mean()
+    med_lam_lai = all_lam_lai.median()
+
+    print('\n=== B4 · XEM LẠI 100% (PHẠM VI noi_dia + hang_nang) ===')
+    print(
+        f"Pham vi: {len(pham_vi)} yc | co >=1 lan ok: {so_co_ok} | "
+        f"lam_lai: {so_lam_lai} | thanh_cong: {so_thanh_cong} | "
+        f"token+tool: {chi_phi_agent:,.0f} d | xem_lai_100 (5p/ca ok) [simulated]: {xem_lai_100:,.0f} d"
+    )
+    print(
+        f"Thoi gian lam lai gia lap trong mau (toan bo ca lam_lai): "
+        f"trung binh {tb_lam_lai:.1f} phut/ca, trung vi {med_lam_lai:.1f} phut/ca [simulated]."
+    )
+    print("B4 giu nguyen 900 viec thanh cong theo du lieu mau; chua cong chi phi co dinh "
+          "va phan nhan vien tiep nhan yeu cau khong thanh cong.")
+    for nhan, phut_lam_lai in [('Gia dinh de (9 phut/ca)', 9.0), (f'Trung binh du lieu ({tb_lam_lai:.1f} phut/ca)', tb_lam_lai)]:
+        lam_lai_cost = so_lam_lai * phut_lam_lai * LUONG_PHUT
+        tong = chi_phi_agent + xem_lai_100 + lam_lai_cost
+        cps = tong / so_thanh_cong
+        hoa_von_xem = (so_thanh_cong * BASELINE - chi_phi_agent - lam_lai_cost) / (so_co_ok * LUONG_PHUT)
+        print(
+            f"{nhan:34s} | lam_lai[simulated]={lam_lai_cost:>9,.0f} d | "
+            f"tong[simulated]={tong:>10,.0f} d | cps[simulated]={cps:>6,.0f} d ({cps / BASELINE:.2f}x) | "
+            f"hoa von CPS xem lai <= {hoa_von_xem:.1f} phut [simulated]"
+        )
+        print(
+            f"[simulated] CPS {'thap' if cps < BASELINE else 'cao'} hon baseline "
+            f"{abs(cps / BASELINE - 1) * 100:.1f}%; "
+            f"{'gan nhu khong con tiet kiem' if cps < BASELINE else 'vuot baseline'} "
+            "khi xem lai 100%."
+        )
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -170,7 +288,10 @@ if __name__ == '__main__':
     in_a2(runs, reqs)
     in_a3(runs, reqs)
     in_a4(runs, reqs)
-    # TODO CP2 · Nhiệm vụ B: đổi từng yếu tố, ghi vào bảng độ nhạy.
+    goc_cps, ket_qua_b1 = in_b1(runs, reqs)
+    in_b2(runs, reqs, goc_cps, ket_qua_b1)
+    in_b3(runs, reqs)
+    in_b4(runs, reqs)
     # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
     #   from statsmodels.stats.proportion import proportion_effectsize
     #   from statsmodels.stats.power import NormalIndPower
