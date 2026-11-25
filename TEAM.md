@@ -73,8 +73,12 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Đóng góp cụ thể
 
-- (điền sau khi thực hiện)
+- CP3: gắn nhãn 20 ca lỗi (người gắn nhãn 2), cùng Người 2 so nhãn: đồng thuận 17/20 = 85%, nhãn thống nhất theo nhãn của mình ở ca 6, 12, 17; soạn bảng khắc phục 5 ca đủ 5 loại.
+- CP2: điền kết luận B4 trong `bang_chi_phi.md` (11.743 đ = 0,98×; 12.415 đ = 1,03×, simulated).
+- CP5: viết `chi_so.md` (3 chỉ số tính thử, 2 chỉ số đề xuất, 10 event có `trace_id`, 3 dòng rủi ro kinh tế) và `ho_so_launch_v0.md` (7 mục).
+- CP4: soạn 3 luật dừng, rollback, owner, scope, `simulated_inputs` trong `pilot_plan.yaml`.
+- Rà soát code và số của Người 1, Người 2: chạy `src/lab13.py`, đối chiếu A–B với đáp án.
 
 ### Bằng chứng
 
-- (điền sau khi thực hiện)
+- Các commit trên nhánh `nguoi3/cp3-gan-nhan` (PR #5 đã merge vào `main`); file `report/team/bang_loi.md`, `chi_so.md`, `ho_so_launch_v0.md`, `pilot_plan.yaml`, `bang_chi_phi.md` (B4).
