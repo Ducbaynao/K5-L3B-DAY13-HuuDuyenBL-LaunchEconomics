@@ -281,6 +281,17 @@ def in_b4(runs, reqs):
         )
 
 
+def in_ty_le_mo_lai(reqs):
+    """Tính số ca mở lại, tổng yêu cầu và tỉ lệ mo_lai_trong_7_ngay trên toàn mẫu và phạm vi pilot."""
+    print('\n=== CP4 (NGƯỜI 1) · TỈ LỆ MỞ LẠI TRONG 7 NGÀY ===')
+    pham_vi = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    for nhan, df in [('Toan mau', reqs), ('Pham vi (noi_dia + hang_nang)', pham_vi)]:
+        so_mo_lai = int((df['mo_lai_trong_7_ngay'] == 1).sum())
+        tong_yc = len(df)
+        ty_le = df['mo_lai_trong_7_ngay'].mean() * 100
+        print(f"{nhan:32s}: {so_mo_lai}/{tong_yc:,} = {ty_le:.2f}%")
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -292,6 +303,7 @@ if __name__ == '__main__':
     in_b2(runs, reqs, goc_cps, ket_qua_b1)
     in_b3(runs, reqs)
     in_b4(runs, reqs)
+    in_ty_le_mo_lai(reqs)
     # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
     #   from statsmodels.stats.proportion import proportion_effectsize
     #   from statsmodels.stats.power import NormalIndPower
