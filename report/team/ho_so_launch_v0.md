@@ -10,7 +10,7 @@ Nhóm: HuuDuyenBL · Lớp: L3B
 | 2 · Ba yếu tố nhạy nhất | 1. Số ca làm lại (+51,8% khi gấp đôi) · 2. Tỉ lệ xem lại (+40,7%) · 3. Lương nhân viên (+23,1% khi tăng 25%). Giá token chỉ ±5,6% [simulated] | Giả lập | PM trợ lý hoàn phí |
 | 3 · So với nhân viên tự làm | Cả hệ thống 5.865 đ/yêu cầu = 0,49× của 12.000 đ [simulated]. Thu hẹp `noi_dia` + `hang_nang`: 0,22× và 0,69×; loại `quoc_te` (1,88×, thành công 27,3%) và `doi_tac` (0,85×). Số bất lợi: xem lại 100% còn 0,98×–1,03× [simulated] | Giả lập | PM trợ lý hoàn phí |
 | 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Chính 82,83% (994/1.200) · Dùng, bỏ qua gợi ý 27,12% (48/177) · An toàn, mở lại 7 ngày 4,25% (51/1.200). Đây là số của đợt chạy thử, chưa có nhóm đối chứng; 10 event có `trace_id` (xem `chi_so.md`) | Xong, có bằng chứng | Trưởng nhóm CSKH |
-| 5 · Bảng lỗi và cách khắc phục | 20 ca gắn 5 loại; bảng khắc phục 5 ca đã nháp, đang chờ nhãn độc lập của người gắn nhãn 1 để tính đồng thuận (mục tiêu ≥ 16/20) | Chưa | Trưởng nhóm CSKH |
+| 5 · Bảng lỗi và cách khắc phục | 20 ca gắn 5 loại bởi hai người độc lập, đồng thuận 17/20 = 85% (lệch ở ca 6, 12, 17, đã có quy tắc phân biệt); bảng khắc phục đủ 5 loại, mỗi dòng có cách phát hiện đo được và một vai trò phụ trách | Xong, có bằng chứng | Trưởng nhóm CSKH |
 | 6 · Pilot plan | Chia theo nhân viên 20 + 20, ngẫu nhiên; cỡ mẫu D1, mức chênh và luật dừng đang hoàn thiện trong `pilot_plan.yaml` | Chưa | Giám đốc vận hành LogiX-VN |
 | 7 · Rủi ro kinh tế | Làm lại gấp đôi: 6.787 đ (+51,8%) · xem lại 100% kéo dài: 11.743 đ (0,98×) · khối lượng còn một nửa: cố định +2.370 đ/việc [simulated] | Giả lập | PM trợ lý hoàn phí |
 
