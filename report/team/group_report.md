@@ -29,7 +29,7 @@ Con số chính (ghi nhãn `simulated` khi cần) và đề xuất cuối của 
 - Pilot thu hẹp về `noi_dia` (0,22×) và `hang_nang` (0,69×); loại `quoc_te` (1,88×) và `doi_tac` (0,85×) [simulated].
 - Yếu tố nhạy nhất: số ca làm lại (+51,8%), xem lại (+40,7%), lương (+23,1%); xem lại 100% còn 0,98×–1,03× [simulated].
 - Chỉ số đợt chạy thử: chính 82,83%, dùng 27,12%, an toàn 4,25%.
-- Đề xuất cuối: chưa chốt (nháp nghiêng về Go có điều kiện, chờ cả nhóm thống nhất). Kết quả duyệt chéo: chưa có.
+- Đề xuất cuối: **Go có điều kiện** cho pilot `noi_dia` + `hang_nang`, 4 điều kiện có người phụ trách và ngày kiểm tra (xem `ho_so_launch_v0.md`). Kết quả duyệt chéo: chưa có.
 
 ## 5. Khó khăn và cách xử lý
 

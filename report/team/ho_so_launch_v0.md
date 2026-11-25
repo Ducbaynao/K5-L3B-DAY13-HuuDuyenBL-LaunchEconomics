@@ -14,7 +14,18 @@ Nhóm: HuuDuyenBL · Lớp: L3B
 | 6 · Pilot plan | Chia theo nhân viên 20 + 20 (20 cụm mỗi nhóm), ngẫu nhiên phân tầng theo depot. 5 điểm cần 1.251/nhóm nhưng 20 người chỉ đạt tối đa 1.000 → chấp nhận mức chênh 6 điểm: 859/nhóm, ≥ 299 yêu cầu mỗi nhân viên, DE 6,96. Số bất lợi: power chỉ 0,64 nếu tác động thật là 5 điểm. 3 luật dừng (an toàn, chi phí, mức dùng); quyết định 2027-01-11 (xem `pilot_plan.yaml`) | Xong, có bằng chứng | Giám đốc vận hành LogiX-VN |
 | 7 · Rủi ro kinh tế | Làm lại gấp đôi: 6.787 đ (+51,8%) · xem lại 100% kéo dài: 11.743 đ (0,98×) · khối lượng còn một nửa: cố định +2.370 đ/việc [simulated] | Giả lập | PM trợ lý hoàn phí |
 
-**Đề xuất:** Go · Go có điều kiện · No-go (giữ một). Go có điều kiện: ghi từng điều kiện, người phụ trách, ngày kiểm tra. No-go: ghi việc phải làm để quay lại cổng.
+### Đề xuất của nhóm
 
-- _Nháp, chờ cả nhóm thống nhất và chờ mục 5, 6 hoàn thiện:_ nghiêng về **Go có điều kiện** cho pilot `noi_dia` + `hang_nang`, vì 0,22× và 0,69× ở quy mô đầy đủ, nhưng phải nêu con số bất lợi: xem lại 100% chỉ còn 0,98×–1,03× [simulated], và mức chênh phát hiện được sẽ lớn hơn 5 điểm vì không đủ người cho 1.251 yêu cầu mỗi nhóm.
-- Điều kiện dự kiến (người phụ trách, ngày kiểm tra sẽ chốt sau): bật đủ event có `trace_id` và thay phút simulated bằng phút đo thật sau tuần 1; có kế hoạch giảm xem lại theo bậc; Giám đốc vận hành ký chấp nhận mức chênh phát hiện được của pilot.
+- Lý do: trong phạm vi, chi phí mỗi việc thành công là 0,22× (`noi_dia`) và 0,69× (`hang_nang`) so với 12.000 đ, cộng cố định 40 triệu đ/tháng vẫn 0,38× [simulated]; đã loại `quoc_te` (1,88×) và `doi_tac` (0,85×); có 3 luật dừng và rollback 30 phút.
+- Con số bất lợi và cách xử lý: xem lại 100% chỉ còn 0,98×–1,03× [simulated] → điều kiện 4; pilot chỉ phát hiện được mức chênh 6 điểm, power 0,64 nếu tác động thật là 5 điểm → điều kiện 2; chi phí nhân viên đang là số giả lập → điều kiện 3.
+
+| # | Điều kiện | Người phụ trách | Ngày kiểm tra |
+| --: | --- | --- | --- |
+| 1 | Sửa khoá chống trùng và đối soát sổ cái mỗi giờ (ca 7, 20), ngưỡng 0 ca hoàn trùng | Kỹ sư trưởng agent | Trước 2026-12-07 |
+| 2 | Ký chấp nhận mức chênh 6 điểm (power 0,64 ở mức 5 điểm) | Giám đốc vận hành LogiX-VN | Trước 2026-12-07 |
+| 3 | Bật đủ 10 event có `trace_id`; thay phút xem lại, làm lại simulated bằng phút đo thật | PM trợ lý hoàn phí | 2026-12-14 (hết tuần 1) |
+| 4 | Kế hoạch giảm xem lại theo bậc, mỗi lần xem lại ≤ 5 phút (hoà vốn B4: 5,1 phút) | Trưởng nhóm CSKH | 2026-12-21 (hết bước rollout 0,25) |
+
+Nếu đến 2026-12-07 chưa xong điều kiện 1 và 2 thì lùi ngày bắt đầu, không chạy pilot.
+
+**Đề xuất: Go có điều kiện** cho pilot `noi_dia` + `hang_nang` (chia theo nhân viên 20 + 20, bắt đầu 2026-12-07, quyết định 2027-01-11).
