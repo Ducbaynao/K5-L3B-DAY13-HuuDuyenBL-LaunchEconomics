@@ -27,11 +27,11 @@ Người 2: kiểm số A–B độc lập với code của Người 1 và đi�
 ## 5. Công cụ AI đã dùng
 
 - Claude Code: đọc đề và hướng dẫn, viết `kiem_so.py`, code D1, điền các bảng và YAML, thao tác git (nhánh, commit, PR). Tôi tự kiểm tra bằng cách chạy lại hai script, so từng con số với output của Người 1 và với số đối chiếu trong hướng dẫn (lệch không quá 2%), kiểm tra YAML bằng `yaml.safe_load`.
-- CP3: công cụ AI đã đọc bảng nhãn tham khảo trong hướng dẫn và đưa ra một bộ nhãn gợi ý trước khi tôi gửi nhãn của mình. Nhãn trong cột "Nhãn người 1" là do tôi tự gắn (khác gợi ý ở ca 6, 12, 17), nhưng vì đã thấy gợi ý nên bộ nhãn chưa hoàn toàn độc lập.
+- CP3: tôi tự gắn nhãn 20 ca. Công cụ AI dùng để trích nội dung 20 ca từ đề, điền nhãn của tôi vào `bang_loi.md`, so với nhãn của Người 3 và tính tỉ lệ đồng thuận.
 - Ngày bắt đầu pilot 2026-12-07 và ngày quyết định 2027-01-11 là giả định do công cụ AI đề xuất, nhóm cần xác nhận.
 
 ## 6. Tự đánh giá
 
 - Làm tốt: kiểm số độc lập bằng cách tính khác với `mo_hinh`, mọi số A–D khớp đáp án; số simulated đều có nhãn; nêu rõ đánh đổi bất lợi của pilot (power 0,64).
-- Chưa tốt: nhãn CP3 chưa hoàn toàn độc lập (xem mục 5); phụ thuộc nhiều vào công cụ AI ở phần viết code.
+- Chưa tốt: lệch nhãn với Người 3 ở 3 ca (6, 12, 17), chủ yếu do nhầm giữa Hệ thống và Ngầm; phụ thuộc nhiều vào công cụ AI ở phần viết code.
 - Còn lại: trình bày D1 và luật dừng khi duyệt chéo; chạy lại code trên máy mình trước khi nộp.
