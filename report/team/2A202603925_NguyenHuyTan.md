@@ -22,7 +22,7 @@ Người 2: kiểm số A–B độc lập với code của Người 1 và đi�
 
 - PR đã merge vào `main`: #2 (CP1, commit `5716c28`), #3 (CP2, `83738a1`), #6 (CP3, `d817d05`), #7 (CP4, `0c7b048`).
 - File: `src/kiem_so.py`, `src/lab13.py` (phần D1), `report/team/bang_chi_phi.md` (A1–B3), `report/team/bang_loi.md` (cột nhãn người 1, đồng thuận, quy tắc), `report/team/pilot_plan.yaml`.
-- Kiểm tra: `python kiem_so.py` và `python lab13.py` chạy hết; `yaml.safe_load` đọc được `pilot_plan.yaml`, ngoài chú thích không còn `?`; không có từ "production".
+- Kiểm tra: `python kiem_so.py` và `python lab13.py` chạy hết; `yaml.safe_load` đọc được `pilot_plan.yaml`, ngoài chú thích không còn `?`; `grep` từ cấm theo checklist không in gì.
 
 ## 5. Công cụ AI đã dùng
 
