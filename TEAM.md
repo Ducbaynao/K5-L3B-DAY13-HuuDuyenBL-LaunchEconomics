@@ -2,7 +2,7 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
+- Tên nhóm: HuuDuyenBL
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-HuuDuyenBL-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
 - Số thành viên: 3
@@ -13,8 +13,8 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 |     Phạm Lý Ngọc Đức   |      |       |        | Người 1: code, tính toán và kiểm tra kỹ thuật |
-|   2 |      Nguyễn Huy Tấn  |      |       |        | Người 2: kiểm số, kế hoạch pilot, gắn nhãn 1 |
-|   3 |      Vũ Lương Duy  |      |       |        | Người 3: chỉ số, tổng hợp hồ sơ, gắn nhãn 2 |
+|   2 |      Nguyễn Huy Tấn  | 2A202603925 |       |        | Người 2: kiểm số, kế hoạch pilot, gắn nhãn 1 |
+|   3 |      Vũ Lương Duy  | 2A202603945 |       |        | Người 3: chỉ số, tổng hợp hồ sơ, gắn nhãn 2 |
 
 Người 1–3 tương ứng với STT trong bảng thành viên. Điền thông tin cá nhân trước khi nộp. Nhóm phân công kiêm nhiệm các vai của lab cho 3 thành viên.
 
@@ -65,16 +65,16 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Sao chép mục dưới đây cho từng thành viên.
 
-## HoVaTen-MSSV
+## Vũ Lương Duy-2A202603945
 
 ### Phần việc phụ trách
 
--
+- Người 3: chỉ số, tổng hợp hồ sơ launch v0, gắn nhãn 2 (CP3), luật dừng và rollback (CP4), `chi_so.md`, `group_report.md`.
 
 ### Đóng góp cụ thể
 
--
+- (điền sau khi thực hiện)
 
 ### Bằng chứng
 
--
+- (điền sau khi thực hiện)
