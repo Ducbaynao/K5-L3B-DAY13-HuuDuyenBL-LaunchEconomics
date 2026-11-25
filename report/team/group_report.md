@@ -18,7 +18,7 @@ Tóm tắt cách nhóm làm từng nhiệm vụ A–E và link tới file hồ s
 
 - A, B: `src/lab13.py`, `report/team/bang_chi_phi.md` (A1 đạt 1,20 · 1,25 · 1,25; A2–A4, B1–B4).
 - C: `report/team/bang_loi.md` (hai bộ nhãn độc lập, đồng thuận 17/20, bảng khắc phục 5 ca).
-- D: `report/team/pilot_plan.yaml` (luật dừng, rollback đã có; D1 và các trường cỡ mẫu đang hoàn thiện).
+- D: `src/lab13.py` và `report/team/pilot_plan.yaml` (D1 đã chạy đạt kiểm tra 1.251, 859, 299; chọn 20 nhân viên mỗi nhóm, mức chênh 6 điểm, DE 6,96).
 - E: `report/team/chi_so.md`, `report/team/ho_so_launch_v0.md`.
 
 ## 4. Kết quả
@@ -34,12 +34,15 @@ Con số chính (ghi nhãn `simulated` khi cần) và đề xuất cuối của 
 ## 5. Khó khăn và cách xử lý
 
 - Dễ quên giờ nhân viên và chi phí cố định khi so với 12.000 đ: đã tính cả hệ thống và cộng cố định riêng.
-- Hai nhãn lệch ở ca 6, 12, 17: thống nhất theo nguyên nhân gốc và ghi quy tắc phân biệt.
-- Cỡ mẫu pilot: 40 nhân viên không đủ cho mức chênh 5 điểm, cần ghi rõ đánh đổi (đang làm).
+- Hai bộ nhãn khác nhau ở 3 ca 6, 12, 17: thống nhất theo nguyên nhân gốc và ghi quy tắc phân biệt.
+- Cỡ mẫu pilot: 40 nhân viên không đủ cho mức chênh 5 điểm; kế hoạch chọn 6 điểm, cần 299 yêu cầu/nhân viên và ghi rõ power khoảng 0,64 nếu tác động thật chỉ 5 điểm.
+- Khi ghép CP4, tôi (Phạm Lý Ngọc Đức) gặp conflict do hai người cùng thêm code vào cuối `src/lab13.py`. Tôi giữ D1 của Người 2 và hàm tỉ lệ mở lại của mình, bỏ phần in trùng rồi chạy lại toàn bộ chương trình; commit xử lý là `6d0d673`.
 
 ## 6. Tổng hợp đóng góp
 
 Chi tiết đóng góp của từng thành viên nằm trong `TEAM.md`.
+
+Trong phần việc của tôi (Phạm Lý Ngọc Đức), tôi viết code A1–A4, B1–B4, tính tỉ lệ mở lại CP4, xử lý conflict khi ghép D1 và bổ sung ba chỉ số E1. Bằng chứng là các commit `7f611b5`, `3dc007e`, `3b46844`, `6d0d673`, `bc104f2` trong lịch sử `src/lab13.py`.
 
 ## 7. Hạn chế và hướng cải thiện
 

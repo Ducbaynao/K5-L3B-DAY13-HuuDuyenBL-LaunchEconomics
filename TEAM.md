@@ -12,7 +12,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |     Phạm Lý Ngọc Đức   |      |       |        | Người 1: code, tính toán và kiểm tra kỹ thuật |
+|   1 |     Phạm Lý Ngọc Đức   | 2A202603991 |       |        | Người 1: code, tính toán và kiểm tra kỹ thuật |
 |   2 |      Nguyễn Huy Tấn  | 2A202603925 |       |        | Người 2: kiểm số, kế hoạch pilot, gắn nhãn 1 |
 |   3 |      Vũ Lương Duy  | 2A202603945 |       |        | Người 3: chỉ số, tổng hợp hồ sơ, gắn nhãn 2 |
 
@@ -63,7 +63,26 @@ report/team/MSSV_HoTen.md
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
-Sao chép mục dưới đây cho từng thành viên.
+Đóng góp thực tế của từng thành viên được ghi dưới đây.
+
+## Phạm Lý Ngọc Đức — 2A202603991 — Người 1
+
+### Phần việc phụ trách
+
+- Tôi phụ trách code và tính toán A1–A4, B1–B4, tỉ lệ mở lại CP4 và ba chỉ số E1; phối hợp kiểm tra code D1 do Người 2 viết.
+
+### Đóng góp cụ thể
+
+- CP1: Tôi hoàn thiện mô hình chi phí và ba phép thử A1; tính theo bốn loại yêu cầu và phân bổ chi phí cố định. Chi phí mỗi việc thành công toàn mẫu là 4.472 đ [simulated].
+- CP2: Tôi tính chín kịch bản độ nhạy, kịch bản kết hợp, giới hạn chạy 1–2–3 lần và xem lại 100%. Trên toàn mẫu, hai lần chạy cho chi phí cả hệ thống thấp nhất: 6.901.220 đ [simulated].
+- CP3: Tôi rà soát code A–B và kiểm tra nội dung CP3 sau khi ghép; hai bộ nhãn độc lập do Người 2 và Người 3 thực hiện.
+- CP4: Tôi tính tỉ lệ mở lại 51/1.200 = 4,25% và 39/982 = 3,97%; xử lý conflict khi ghép D1 của Người 2, giữ phần tính của cả hai và loại output trùng.
+- CP5: Tôi viết `in_e1` để tính ba chỉ số: 82,83%, 27,12%, 4,25%; đối chiếu mẫu số với đặc tả event và chạy lại toàn bộ chương trình.
+
+### Bằng chứng
+
+- Code: `src/lab13.py`; commit CP1 `7f611b5`, CP2 `3dc007e`, CP4 `3b46844`, xử lý conflict `6d0d673`, CP5 `bc104f2`.
+- Báo cáo cá nhân: [Phạm Lý Ngọc Đức](report/team/2A202603991_PhamLyNgocDuc.md). Email sẽ bổ sung trước khi nộp.
 
 ## Vũ Lương Duy-2A202603945
 
