@@ -281,6 +281,17 @@ def in_b4(runs, reqs):
         )
 
 
+def in_ty_le_mo_lai(reqs):
+    """Tính số ca mở lại, tổng yêu cầu và tỉ lệ mo_lai_trong_7_ngay trên toàn mẫu và phạm vi pilot."""
+    print('\n=== CP4 (NGƯỜI 1) · TỈ LỆ MỞ LẠI TRONG 7 NGÀY ===')
+    pham_vi = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    for nhan, df in [('Toan mau', reqs), ('Pham vi (noi_dia + hang_nang)', pham_vi)]:
+        so_mo_lai = int((df['mo_lai_trong_7_ngay'] == 1).sum())
+        tong_yc = len(df)
+        ty_le = df['mo_lai_trong_7_ngay'].mean() * 100
+        print(f"{nhan:32s}: {so_mo_lai}/{tong_yc:,} = {ty_le:.2f}%")
+
+
 # ---------- Nhiệm vụ D1 · Cỡ mẫu (Người 2) ----------
 from statistics import NormalDist
 
@@ -328,11 +339,6 @@ def in_d1(baseline=0.70, icc=0.02, so_nhan_vien=40):
     return dict(n5=n5, n6=n6, m_e=m_e, de_e=de_e)
 
 
-def ti_le_mo_lai(reqs):
-    pv = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
-    print(f"Ti le mo_lai_trong_7_ngay hien tai: {reqs['mo_lai_trong_7_ngay'].mean():.2%} "
-          f"({reqs['mo_lai_trong_7_ngay'].sum()}/{len(reqs)}); "
-          f"trong pham vi noi_dia + hang_nang: {pv['mo_lai_trong_7_ngay'].mean():.2%}")
 
 
 if __name__ == '__main__':
@@ -348,4 +354,4 @@ if __name__ == '__main__':
     in_b4(runs, reqs)
     d1 = in_d1()
     assert (d1['n5'], d1['n6'], d1['m_e']) == (1251, 859, 299), d1  # số đối chiếu D1
-    ti_le_mo_lai(reqs)
+    in_ty_le_mo_lai(reqs)
