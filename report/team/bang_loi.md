@@ -8,34 +8,36 @@ Người gắn nhãn 1: Nguyễn Huy Tấn · Người gắn nhãn 2: Vũ Lươn
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
-| 1 | _(Tấn điền)_ | Do người dùng | | |
-| 2 | _(Tấn điền)_ | Hệ thống | | |
-| 3 | _(Tấn điền)_ | Ngữ cảnh | | |
-| 4 | _(Tấn điền)_ | Giới hạn hệ thống | | |
-| 5 | _(Tấn điền)_ | Ngầm | | |
-| 6 | _(Tấn điền)_ | Do người dùng | | |
-| 7 | _(Tấn điền)_ | Hệ thống | | |
-| 8 | _(Tấn điền)_ | Hệ thống | | |
-| 9 | _(Tấn điền)_ | Do người dùng | | |
-| 10 | _(Tấn điền)_ | Ngữ cảnh | | |
-| 11 | _(Tấn điền)_ | Giới hạn hệ thống | | |
-| 12 | _(Tấn điền)_ | Ngầm | | |
-| 13 | _(Tấn điền)_ | Giới hạn hệ thống | | |
-| 14 | _(Tấn điền)_ | Do người dùng | | |
-| 15 | _(Tấn điền)_ | Hệ thống | | |
-| 16 | _(Tấn điền)_ | Ngữ cảnh | | |
-| 17 | _(Tấn điền)_ | Ngầm | | |
-| 18 | _(Tấn điền)_ | Ngữ cảnh | | |
-| 19 | _(Tấn điền)_ | Giới hạn hệ thống | | |
-| 20 | _(Tấn điền)_ | Hệ thống | | |
+| 1 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 2 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 3 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 4 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 5 | Ngầm | Ngầm | Có | Ngầm |
+| 6 | Ngữ cảnh | Do người dùng | Không | Do người dùng |
+| 7 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 8 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 9 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 10 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 11 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 12 | Hệ thống | Ngầm | Không | Ngầm |
+| 13 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 14 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 15 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 16 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 17 | Hệ thống | Ngầm | Không | Ngầm |
+| 18 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 19 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 20 | Hệ thống | Hệ thống | Có | Hệ thống |
 
-**Tỉ lệ đồng thuận:** chưa tính — chờ nhãn độc lập của Người gắn nhãn 1 (Tấn)
+**Tỉ lệ đồng thuận:** 17 / 20 = 85% (đạt ngưỡng 80%; không trùng ở ca 6, 12, 17)
 
 ## Quy tắc phân biệt cho các ca không trùng
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- ...
+- **Ca 6 → Do người dùng (không phải Ngữ cảnh):** gốc lỗi là khách chọn sai mục "Hoàn phí giao trễ"; việc trợ lý không đối chiếu với phần mô tả là việc cần cải thiện, ghi ở cột khắc phục, không đổi nguyên nhân gốc.
+- **Ca 12 → Ngầm (không phải Hệ thống):** kết quả vẫn đúng và không ai thấy chi phí gấp 3 lần suốt 3 tuần; lỗi chưa lộ ra thì là ngầm, kể cả khi "sai" là sai về chi phí.
+- **Ca 17 → Ngầm (không phải Hệ thống):** dùng bảng giá cũ là sai thiết kế, nhưng 212 đơn lệch không ai mở lại và không cảnh báo nào kích; Hệ thống chỉ dùng khi sai đã lộ ra (như ca 8, 15).
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
