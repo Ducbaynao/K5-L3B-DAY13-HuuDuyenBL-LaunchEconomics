@@ -1,21 +1,21 @@
 # Phiếu chấm hội đồng Gate 2a
 
-Tôi đối chiếu output chạy chương trình của nhóm T108 với tiêu chí Gate 2a. Phiếu này ghi nhận bằng chứng đã nhận; điểm và quyết định hội đồng chưa chốt vì tôi chưa có hồ sơ launch, kế hoạch pilot và câu trả lời tại buổi duyệt của nhóm được chấm.
+Tôi đánh giá nhóm T108 theo bằng chứng đã được cung cấp: output chương trình A–B, D1 và E1. Điểm dưới đây phản ánh mức độ đáp ứng được chứng minh trong lần đánh giá này; tôi chưa có hồ sơ launch, kế hoạch pilot hoặc câu trả lời tại buổi duyệt để xác nhận các phần còn thiếu.
 
 - Nhóm chấm (hội đồng): HuuDuyenBL · Lớp L3B.
 - Người ghi phiếu: Phạm Lý Ngọc Đức · MSSV 2A202603991.
 - Nhóm được chấm: T108.
 - Bằng chứng đã nhận: output A1, A2–A4, B1–B4, D1 và E1 do nhóm cung cấp.
-- Trạng thái: Đã đối chiếu số liệu; chờ hồ sơ để chốt đánh giá hội đồng. Tôi chưa trực tiếp chạy code của nhóm được chấm.
+- Trạng thái: Đánh giá trên output đã nhận; tổng 5/30, quyết định No-go tại lần đánh giá này. Tôi chưa trực tiếp chạy code của nhóm được chấm.
 
 ## Đánh giá theo ba tiêu chí hội đồng
 
 | Tiêu chí | 0 điểm | 5 điểm | 10 điểm | Điểm | Lý do (có số) |
 | --- | --- | --- | --- | ---: | --- |
-| Đề xuất khớp bằng chứng | Mâu thuẫn với số của chính nhóm | Khớp nhưng bỏ qua một con số bất lợi | Khớp, nêu cả con số bất lợi và cách xử lý | Chưa chốt | Tôi ghi nhận CPS 4.472 đ, chi phí cả hệ thống 5.865 đ/yêu cầu và B4 lên 11.743–12.415 đ/việc [simulated]. Nhóm đã in số bất lợi, nhưng chưa cung cấp đề xuất cuối và cách xử lý để tôi đánh giá sự nhất quán. |
-| Số giả lập và phạm vi | Không nhãn; phạm vi "mọi yêu cầu" | Có nhãn hoặc có thu hẹp phạm vi | Nhãn ở mọi số giả lập; phạm vi thu hẹp có lý do bằng số | Chưa chốt | Output có nhãn simulated ở tiêu đề và [sim] tại nhiều dòng. A4/B4 tính riêng noi_dia + hang_nang; A3 cho thấy quoc_te tốn 22.515 đ/việc, 1,88× baseline [simulated]. Tôi cần xem hồ sơ để xác nhận nhãn đầy đủ và phạm vi pilot thực sự được chọn. |
-| Pilot ra được quyết định | Không đối chứng hoặc thiếu cỡ mẫu | Đủ cỡ mẫu, luật dừng chung chung | Tách được tác động, đủ mẫu, luật dừng có ngưỡng, thời hạn, người có quyền dừng | Chưa chốt | D1 nêu đúng 1.251 mẫu/nhóm cho 5 điểm, và 859 mẫu hiệu dụng/nhóm cho 6 điểm với 20 nhân viên, 299 yêu cầu/người, DE 6,96. Chưa có bằng chứng về cách chia thực tế, đối chứng đồng thời, kiểm soát ảnh hưởng gián tiếp và luật dừng. |
-| **Tổng** | | | | **Chưa chốt / 30** | Tôi chưa quy đổi phần thiếu bằng chứng thành điểm 0 hoặc mặc định điểm tối đa. |
+| Đề xuất khớp bằng chứng | Mâu thuẫn với số của chính nhóm | Khớp nhưng bỏ qua một con số bất lợi | Khớp, nêu cả con số bất lợi và cách xử lý | 0/10 | Chưa đủ minh chứng để ghi nhận điểm tiêu chí này: tôi chưa nhận đề xuất cuối và cách xử lý rủi ro. Tôi ghi nhận CPS 4.472 đ, chi phí cả hệ thống 5.865 đ/yêu cầu và B4 lên 11.743–12.415 đ/việc [simulated]. Nhóm đã in số bất lợi, nhưng chưa cung cấp đề xuất cuối và cách xử lý để tôi đánh giá sự nhất quán. |
+| Số giả lập và phạm vi | Không nhãn; phạm vi "mọi yêu cầu" | Có nhãn hoặc có thu hẹp phạm vi | Nhãn ở mọi số giả lập; phạm vi thu hẹp có lý do bằng số | 5/10 | Output có nhãn simulated ở tiêu đề và [sim] tại nhiều dòng. A4/B4 tính riêng noi_dia + hang_nang; A3 cho thấy quoc_te tốn 22.515 đ/việc, 1,88× baseline [simulated]. Tôi cần xem hồ sơ để xác nhận nhãn đầy đủ và phạm vi pilot thực sự được chọn. |
+| Pilot ra được quyết định | Không đối chứng hoặc thiếu cỡ mẫu | Đủ cỡ mẫu, luật dừng chung chung | Tách được tác động, đủ mẫu, luật dừng có ngưỡng, thời hạn, người có quyền dừng | 0/10 | Chưa đủ minh chứng về kế hoạch pilot để ghi nhận điểm: D1 nêu đúng 1.251 mẫu/nhóm cho 5 điểm, và 859 mẫu hiệu dụng/nhóm cho 6 điểm với 20 nhân viên, 299 yêu cầu/người, DE 6,96. Chưa có bằng chứng về cách chia thực tế, đối chứng đồng thời, kiểm soát ảnh hưởng gián tiếp và luật dừng. |
+| **Tổng** | | | | **5 / 30** | Tôi ghi 0 ở hai tiêu chí chưa có đủ minh chứng; đây không phải kết luận rằng các phần chưa nhận đã được kiểm tra và làm sai. Điểm có thể được xét lại khi bổ sung hồ sơ. |
 
 ## Nhận xét từ kết quả đã cung cấp
 
@@ -29,9 +29,9 @@ Tôi đối chiếu output chạy chương trình của nhóm T108 với tiêu c
 
 ## Quyết định và lý do
 
-**Quyết định của hội đồng:** Chưa chốt. Sau khi kiểm tra đủ hồ sơ và thảo luận, nhóm chấm sẽ ghi một trong ba quyết định: Go, Go có điều kiện hoặc No-go.
+**Quyết định của hội đồng:** **No-go** tại lần đánh giá trên bằng chứng đã nhận.
 
-**Lý do:** Tôi xác nhận các số được cung cấp khớp số đối chiếu của lab, gồm cả B4 ở mức 1,03× baseline [simulated] và power 0,64 ở mức chênh 5 điểm. Tôi cần đề xuất cuối cùng và kế hoạch xử lý các bất lợi này trước khi chốt quyết định.
+**Lý do:** Tôi chưa đủ cơ sở duyệt pilot vì chưa nhận đề xuất cuối, thiết kế đối chứng và luật dừng. Dù số tính khớp đối chiếu, B4 đạt 12.415 đ/việc [simulated] và power chỉ 0,64 ở mức chênh 5 điểm; cần kế hoạch xử lý cụ thể trước khi quay lại cổng.
 
 ## Câu hỏi cho đội trình
 
@@ -39,10 +39,10 @@ Tôi đối chiếu output chạy chương trình của nhóm T108 với tiêu c
 
 **Câu trả lời của đội trình (ghi lại tại buổi):** Chưa nhận. Tôi sẽ ghi câu trả lời thực tế, không dùng câu trả lời dự kiến thay cho biên bản.
 
-## Nội dung cần bổ sung để chốt phiếu
+## Việc cần làm để quay lại Gate 2a
 
 - Đề xuất Go / Go có điều kiện / No-go và phạm vi pilot trong hồ sơ của T108.
 - Kế hoạch pilot: cách chia, đối chứng đồng thời, cỡ mẫu thực tế và hiệu dụng, kiểm soát ảnh hưởng gián tiếp, ngày quyết định.
 - Ít nhất 3 luật dừng đủ NẾU – TRONG – THÌ – KHÔNG THÌ, có ngưỡng, thời hạn, vai trò và rollback.
 - Nhãn simulated trong các file hồ sơ, bảng lỗi và danh sách event để kiểm tra bằng chứng liên quan.
-- Điểm ba tiêu chí, tổng điểm, quyết định hội đồng và câu trả lời thực tế sau buổi duyệt.
+- Sau khi nhận bổ sung, tôi sẽ đánh giá lại ba tiêu chí, cập nhật tổng điểm và quyết định; câu trả lời của đội trình chỉ được ghi khi thực sự nhận được.
