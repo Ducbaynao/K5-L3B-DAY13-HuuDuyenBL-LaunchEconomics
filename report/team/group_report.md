@@ -23,13 +23,18 @@ Tóm tắt cách nhóm làm từng nhiệm vụ A–E và link tới file hồ s
 
 ## 4. Kết quả
 
-Con số chính (ghi nhãn `simulated` khi cần) và đề xuất cuối của `ho_so_launch_v0.md`. Kết quả duyệt chéo nhóm nhận được từ hội đồng.
+Tôi tổng hợp kết quả tính toán và đề xuất của nhóm như sau:
 
 - Chi phí mỗi việc thành công 4.472 đ, gấp 16,3× hoá đơn token chia số yêu cầu; cả hệ thống 5.865 đ/yêu cầu = 0,49× của 12.000 đ [simulated].
 - Pilot thu hẹp về `noi_dia` (0,22×) và `hang_nang` (0,69×); loại `quoc_te` (1,88×) và `doi_tac` (0,85×) [simulated].
 - Yếu tố nhạy nhất: số ca làm lại (+51,8%), xem lại (+40,7%), lương (+23,1%); xem lại 100% còn 0,98×–1,03× [simulated].
 - Chỉ số đợt chạy thử: chính 82,83%, dùng 27,12%, an toàn 4,25%.
-- Đề xuất cuối: **Go có điều kiện** cho pilot `noi_dia` + `hang_nang`, 4 điều kiện có người phụ trách và ngày kiểm tra (xem `ho_so_launch_v0.md`). Kết quả duyệt chéo: chưa có.
+- **Đề xuất cuối: Go có điều kiện** cho pilot `noi_dia` + `hang_nang`, loại `quoc_te` và `doi_tac`. Trong phạm vi, CPS cộng cố định là 4.599 đ/việc ở 45.000 yêu cầu/tháng, hoặc 5.784 đ nếu khối lượng còn một nửa [simulated].
+- **Thiết kế pilot:** chia ngẫu nhiên theo nhân viên, phân tầng theo depot, 20 người can thiệp và 20 người đối chứng. Chấp nhận mức chênh 6 điểm phần trăm, cần ít nhất 299 yêu cầu/người, tương đương 5.980 yêu cầu thực tế và khoảng 859 mẫu hiệu dụng mỗi nhóm (DE 6,96); power còn khoảng 0,64 nếu tác động thật chỉ 5 điểm.
+- **Điều kiện trước khi bắt đầu:** Kỹ sư trưởng agent hoàn thiện khoá chống trùng và đối soát sổ cái; Giám đốc vận hành ký chấp nhận đánh đổi cỡ mẫu, đều trước 2026-12-07. Nếu chưa hoàn thành hai điều kiện này, nhóm đề xuất lùi ngày chạy pilot.
+- **Điều kiện trong pilot:** PM trợ lý hoàn phí kiểm tra đủ 10 event có `trace_id` và thay phút simulated bằng phút đo thật vào 2026-12-14; Trưởng nhóm CSKH kiểm tra kế hoạch giảm xem lại theo bậc vào 2026-12-21. Tôi lưu ý CPS khi xem lại 100% lên 11.743–12.415 đ/việc [simulated], nên hiệu quả kinh tế cần được kiểm chứng bằng thời gian đo thật.
+- **Lịch dự kiến:** bắt đầu 2026-12-07, quyết định sau pilot vào 2027-01-11; theo dõi luật dừng về an toàn, chi phí và mức dùng, có rollback trong 30 phút.
+- **Kết quả duyệt chéo nhóm nhận được:** chưa nhận phiếu đánh giá từ hội đồng chấm HuuDuyenBL. Phiếu nhóm tôi chấm T108 trong `phieu_cham.md` là kết quả đánh giá nhóm khác, không phải điểm hội đồng dành cho nhóm tôi.
 
 ## 5. Khó khăn và cách xử lý
 
