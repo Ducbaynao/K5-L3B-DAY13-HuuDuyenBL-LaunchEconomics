@@ -12,7 +12,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |     Phạm Lý Ngọc Đức   |      |       |        | Người 1: code, tính toán và kiểm tra kỹ thuật |
+|   1 |     Phạm Lý Ngọc Đức   |    2A202603991  |    26ai.ducpln@vinuni.edu.vn   |    Ducbaynao    | Người 1: code, tính toán và kiểm tra kỹ thuật |
 |   2 |      Nguyễn Huy Tấn  | 2A202603925 | 26ai.tannh@vinuni.edu.vn | Besoi2004 | Người 2: kiểm số, kế hoạch pilot, gắn nhãn 1 |
 |   3 |      Vũ Lương Duy  | 2A202603945 |  26ai.duyvl@vinuni.edu.vn  | Vuduy21 | Người 3: chỉ số, tổng hợp hồ sơ, gắn nhãn 2 |
 
