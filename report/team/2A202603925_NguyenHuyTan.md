@@ -4,7 +4,7 @@
 
 - Họ tên: Nguyễn Huy Tấn
 - MSSV: 2A202603925
-- Email:
+- Email: 26ai.tannh@vinuni.edu.vn
 - Vai trong nhóm: Người 2 — người kiểm số, người gắn nhãn 1, phụ trách kế hoạch pilot (D1)
 
 ## 2. Phần việc phụ trách
