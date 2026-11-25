@@ -58,3 +58,42 @@ for ten, kl in [('45.000 yc/tháng', 45_000), ('một nửa', 22_500)]:
     print(f'  {ten:16s} TC/tháng {tc_thang:8,.0f}  cố định/việc {co_dinh:6,.0f}  '
           f'cps+cố định {pv["cps"] + co_dinh:6,.0f}  {(pv["cps"] + co_dinh) / 12000:.2f}×')
 print(f'  (cps trong phạm vi chưa cộng cố định: {pv["cps"]:,.0f} đ, {pv["tc"]} việc thành công)')
+
+
+# ---------- CP2 · B · tính độc lập, không gọi mo_hinh ----------
+def cps_b(gia_vao=26, gia_ra=130, he_xem=1.0, he_lam=1.0, luong=2000, k=None):
+    """Trả (tổng trợ lý, số thành công, cps). k = giới hạn số lần chạy."""
+    r = runs if k is None else runs[runs.attempt <= k]
+    giu = reqs if k is None else reqs[reqs.so_lan_chay <= k]  # vượt k: chuyển nhân viên, 0 phút
+    tong = ((r.tokens_in * gia_vao + r.tokens_out * gia_ra) / 1000 + r.tool_calls * 15).sum() \
+        + giu.phut_xem_lai_simulated.sum() * luong * he_xem \
+        + giu.phut_lam_lai_simulated.sum() * luong * he_lam
+    tc = (giu.ket_qua == 'thanh_cong').sum()
+    return tong, tc, tong / tc
+
+goc = cps_b()[2]
+kb = {
+    'Giá token gấp đôi': dict(gia_vao=52, gia_ra=260), 'Giá token giảm một nửa': dict(gia_vao=13, gia_ra=65),
+    'Xem lại gấp đôi': dict(he_xem=2), 'Xem lại giảm một nửa': dict(he_xem=0.5),
+    'Làm lại gấp đôi': dict(he_lam=2), 'Làm lại giảm một nửa': dict(he_lam=0.5),
+    'Lương tăng 25%': dict(luong=2500), 'Tối đa 2 lần chạy': dict(k=2), 'Chỉ 1 lần chạy': dict(k=1),
+}
+print(f'\nB1  gốc {goc:,.0f} đ')
+pct = {}
+for ten, kw in kb.items():
+    c = cps_b(**kw)[2]
+    pct[ten] = (c / goc - 1) * 100
+    print(f'  {ten:24s} {c:7,.0f}  {pct[ten]:+6.1f}%')
+for a in ('Giá token', 'Xem lại', 'Làm lại'):  # giảm nửa = −½ gấp đôi
+    assert abs(pct[f'{a} giảm một nửa'] + pct[f'{a} gấp đôi'] / 2) < 1e-6, a
+print('  Tự kiểm tra: giảm một nửa = −½ gấp đôi: ĐẠT')
+
+c2 = cps_b(gia_vao=52, gia_ra=260, he_xem=2)[2]
+print(f'\nB2  token×2 + xem lại×2: {c2:,.0f} đ ({(c2 / goc - 1) * 100:+.1f}%), '
+      f'tổng riêng {pct["Giá token gấp đôi"] + pct["Xem lại gấp đôi"]:+.1f}%')
+
+print('\nB3  k  tổng trợ lý   không TC   cả hệ thống     cps')
+for k in (1, 2, 3):
+    tong, tc, c = cps_b(k=k)
+    ktc = len(reqs) - tc
+    print(f'    {k}  {tong:11,.0f}  {ktc:6d}  {tong + ktc * 12000:12,.0f}  {c:6,.0f}')
