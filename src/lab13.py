@@ -281,6 +281,60 @@ def in_b4(runs, reqs):
         )
 
 
+# ---------- Nhiệm vụ D1 · Cỡ mẫu (Người 2) ----------
+from statistics import NormalDist
+
+
+def co_mau(p1, p2, alpha=0.05, power=0.8):
+    """Cỡ mẫu mỗi nhóm khi so hai tỉ lệ (công thức trong docs/du_lieu_va_cong_thuc.md)."""
+    za, zb = NormalDist().inv_cdf(1 - alpha / 2), NormalDist().inv_cdf(power)
+    pb = (p1 + p2) / 2
+    return math.ceil((za * math.sqrt(2 * pb * (1 - pb))
+                      + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2)
+
+
+def power_hai_ti_le(p1, p2, n, alpha=0.05):
+    """Power khi mỗi nhóm có n mẫu hiệu dụng (đảo công thức co_mau)."""
+    za = NormalDist().inv_cdf(1 - alpha / 2)
+    pb = (p1 + p2) / 2
+    z = (abs(p2 - p1) * math.sqrt(n) - za * math.sqrt(2 * pb * (1 - pb))) / math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))
+    return NormalDist().cdf(z)
+
+
+def in_d1(baseline=0.70, icc=0.02, so_nhan_vien=40):
+    print('\n=== D1 · CỠ MẪU (baseline 0,70; +5 điểm; alpha 0,05; power 0,8; ICC 0,02) ===')
+    n5 = co_mau(baseline, baseline + 0.05)
+    print(f"a) Chia theo yeu cau: {n5:,} yc moi nhom")
+
+    m = 75
+    de = 1 + (m - 1) * icc
+    n_b = math.ceil(n5 * de)
+    nv_b = math.ceil(n_b / m)
+    print(f"b) Theo nhan vien, m={m}: DE={de:.2f}, n={n_b:,} moi nhom -> {nv_b} nguoi/nhom, "
+          f"tong {2 * nv_b} > {so_nhan_vien}: {'du' if 2 * nv_b <= so_nhan_vien else 'KHONG du nguoi'}")
+
+    tran_c = 20 / icc
+    print(f"c) 20 nhan vien/nhom: n hieu dung toi da c/ICC = {tran_c:,.0f} "
+          f"{'>=' if tran_c >= n5 else '<'} {n5:,}: {'dat' if tran_c >= n5 else 'KHONG dat'}")
+    print(f"d) 6 depot/nhom: n hieu dung toi da = {6 / icc:,.0f}")
+
+    n6 = co_mau(baseline, baseline + 0.06)
+    # 20m / (1 + (m-1)·ICC) >= n6  ->  m >= n6·(1-ICC) / (20 - n6·ICC)
+    m_e = math.ceil(n6 * (1 - icc) / (20 - n6 * icc))
+    de_e = 1 + (m_e - 1) * icc
+    print(f"e) Muc chenh 6 diem: {n6:,} moi nhom; 20 nguoi/nhom -> m >= {m_e} yc moi nguoi (DE={de_e:.2f})")
+    print(f"   Danh doi: neu tac dong that chi 5 diem, power voi n={n6} chi con "
+          f"{power_hai_ti_le(baseline, baseline + 0.05, n6):.2f}")
+    return dict(n5=n5, n6=n6, m_e=m_e, de_e=de_e)
+
+
+def ti_le_mo_lai(reqs):
+    pv = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    print(f"Ti le mo_lai_trong_7_ngay hien tai: {reqs['mo_lai_trong_7_ngay'].mean():.2%} "
+          f"({reqs['mo_lai_trong_7_ngay'].sum()}/{len(reqs)}); "
+          f"trong pham vi noi_dia + hang_nang: {pv['mo_lai_trong_7_ngay'].mean():.2%}")
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -292,6 +346,6 @@ if __name__ == '__main__':
     in_b2(runs, reqs, goc_cps, ket_qua_b1)
     in_b3(runs, reqs)
     in_b4(runs, reqs)
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    d1 = in_d1()
+    assert (d1['n5'], d1['n6'], d1['m_e']) == (1251, 859, 299), d1  # số đối chiếu D1
+    ti_le_mo_lai(reqs)
