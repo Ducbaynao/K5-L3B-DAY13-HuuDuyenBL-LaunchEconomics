@@ -341,6 +341,26 @@ def in_d1(baseline=0.70, icc=0.02, so_nhan_vien=40):
 
 
 
+def in_e1(reqs):
+    """Tính và in 3 chỉ số E1 trên mẫu chạy thử (dữ liệu giả lập, không có nhóm đối chứng)."""
+    tong_yc = len(reqs)
+    chinh_tu = int(((reqs['dong_trong_24h'] == 1) & (reqs['mo_lai_trong_7_ngay'] == 0)).sum())
+    chinh_tl = chinh_tu / tong_yc * 100
+
+    xem = reqs[reqs['duoc_xem_lai'] == 1]
+    xem_mau = len(xem)
+    dung_tu = int(xem['quyet_dinh_xem_lai'].isin(['sua', 'bo']).sum())
+    dung_tl = dung_tu / xem_mau * 100
+
+    an_toan_tu = int((reqs['mo_lai_trong_7_ngay'] == 1).sum())
+    an_toan_tl = an_toan_tu / tong_yc * 100
+
+    print('\n=== E1 · BA CHỈ SỐ MẪU CHẠY THỬ (GIẢ LẬP, KHÔNG ĐỐI CHỨNG) ===')
+    print(f"Chi so chinh (dong <=24h & khong mo lai 7 ngay): {chinh_tu}/{tong_yc:,} = {chinh_tl:.2f}%")
+    print(f"Chi so dung - bo qua goi y (sua + bo / duoc xem lai): {dung_tu}/{xem_mau:,} = {dung_tl:.2f}%")
+    print(f"Chi so an toan - mo lai trong 7 ngay: {an_toan_tu}/{tong_yc:,} = {an_toan_tl:.2f}%")
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -355,3 +375,4 @@ if __name__ == '__main__':
     d1 = in_d1()
     assert (d1['n5'], d1['n6'], d1['m_e']) == (1251, 859, 299), d1  # số đối chiếu D1
     in_ty_le_mo_lai(reqs)
+    in_e1(reqs)
